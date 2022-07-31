@@ -1,0 +1,36 @@
+.flex {
+    display: flex;
+}
+.sidenav {
+    height: 100%;
+    width: 10%;
+    min-width: 125px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 26px;
+    display: block;
+    color: #818181;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.bottom-a {
+    position: absolute;
+    bottom: 0;
+}
+
+.container {
+    margin-left: max(125px, 10%);
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ ls.name }}
+{% endblock %}
+
+{% block content %}
+    <h1>{{ ls.name }}</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <ul>
+            {% for item in items %}
+                {% if item.todoList_id == ls.id %}
+                    <li>
+                        {% if item.complete == 0 %}
+                            <input type="checkbox" name="c{{ item.id }}" id="c{{ item.id }}" value="clicked">
+                            {{ item.text }} ❌
+                        {% else %}
+                            <input type="checkbox" name="c{{ item.id }}" id="c{{ item.id }}" value="clicked" checked>
+                            {{ item.text }} ✅
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <button type="submit" name="save" value="save">Save</button>
+        <input type="text" name="new" id="new" placeholder="at least two characters">
+        <button type="submit" name="newItem" value="newItem">Add new item</button>
+    </form>
+    {% if user.is_authenticated %}
+    {% else %}
+        <script>
+            form = document.querySelector('form')
+            input = document.querySelector('input[type=text]');
+
+            form.addEventListener('submit', () => {
+                alert('you have to be logged in to do this!');
+                event.preventDefault()
+                input.value = ''
+            });
+        </script>
+    {% endif %}
+{% endblock %}

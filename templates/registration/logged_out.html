@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Logged out
+{% endblock %}
+
+{% block content %}
+    <h1>
+        Logged out
+    </h1>
+    <p>
+        <div class="flex" style="align-items: center;">
+            <div>
+                Redirecting back to <a href="{% url 'index' %}">home</a> page... &nbsp
+            </div>
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </p>
+    <script>
+        setTimeout(() => {
+            window.location.replace("{% url 'index' %}");
+         }, 3000);
+    </script>
+{% endblock %}
