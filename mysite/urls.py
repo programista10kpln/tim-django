@@ -18,9 +18,9 @@ from django.urls import path, include
 from users import views as v
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('main.urls')),
-    path('register/', v.register, name='register'),
-    path('', include('django.contrib.auth.urls'), name='login'),
-    path('logged_out/', v.logged_out, name='logged_out')
+    path("admin/", admin.site.urls),
+    path("", include("main.urls")),
+    path("register/", v.register, name="register"),
+    path("", include("django.contrib.auth.urls"), name="login"),
+    path("logged_out/", v.logged_out, name="logged_out"),
 ]
